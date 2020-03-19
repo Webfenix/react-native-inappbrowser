@@ -62,6 +62,7 @@ public class RNInAppBrowser {
     }
 
     CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+    
     if (options.hasKey(KEY_TOOLBAR_COLOR)) {
       final String colorString = options.getString(KEY_TOOLBAR_COLOR);
       try {
@@ -94,6 +95,7 @@ public class RNInAppBrowser {
     }
 
     CustomTabsIntent customTabsIntent = builder.build();
+    customTabsIntent.intent.setPackage("com.android.chrome");
 
     if (options.hasKey(KEY_HEADERS)) {
       ReadableMap readableMap = options.getMap(KEY_HEADERS);
